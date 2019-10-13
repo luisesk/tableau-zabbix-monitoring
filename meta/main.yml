@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: Tableau Zabbix
+  role_name: Tableau_Zabbix
   author: Luis Alberto Paschoal
   description: Role to enable the monitoring of a Tableau Server cluster status throgh Zabbix.
 
