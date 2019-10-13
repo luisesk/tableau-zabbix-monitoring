@@ -5,7 +5,7 @@
 - name: Copy Tableau Monitoring Script
   template:
     src: 'tableau_check.py.j2'
-    dest: '{{script_path}}tableau_check.py'
+    dest: '{{ script_path }}tableau_check.py'
     owner: 'zabbix'
     group: 'zabbix'
     mode: 'u=rw,g=r,o=r'
@@ -14,7 +14,7 @@
 - name: Copy Tableu UserParameter
   template:
     src: 'userparameter_tableau.conf.j2'
-    dest: '{{userparameter_path}}userparameter_tableau.conf'
+    dest: '{{ userparameter_path }}userparameter_tableau.conf'
     owner: 'zabbix'
     group: 'zabbix'
     mode: 'u=rw,g=r,o=r'
