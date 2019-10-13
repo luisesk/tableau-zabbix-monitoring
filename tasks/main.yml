@@ -1,0 +1,22 @@
+---
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Monitoramento de músicas sendo tocadas em todas as radios do Icecast  #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+- name: Copy Tableau Monitoring Script
+  template:
+    src: 'tableau_check.py.j2'
+    dest: '{{script_path}}tableau_check.py'
+    owner: 'zabbix'
+    group: 'zabbix'
+    mode: 'u=rw,g=r,o=r'
+  tags: 'copy_script'
+
+- name: Copy Tableu UserParameter
+  template:
+    src: 'userparameter_tableau.conf.j2'
+    dest: '{{userparameter_path}}userparameter_tableau.conf'
+    owner: 'zabbix'
+    group: 'zabbix'
+    mode: 'u=rw,g=r,o=r'
+  notify: 'restart zabbix-agent'
+  tags: 'copy_userparameter'

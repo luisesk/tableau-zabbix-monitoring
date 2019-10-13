@@ -1,0 +1,6 @@
+---
+tableau_server: 127.0.0.1
+status_xml: '/tmp/tableau_status.xml'
+script_path: '/opt/scripts/'
+python_path: '/usr/bin/python3'
+userparameter_path: '/etc/zabbix/zabbix_agentd.d/'

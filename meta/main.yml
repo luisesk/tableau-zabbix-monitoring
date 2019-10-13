@@ -1,0 +1,30 @@
+galaxy_info:
+  role_name: Tableau Zabbix
+  author: Luis Alberto Paschoal
+  description: Role to enable the monitoring of a Tableau Server cluster status throgh Zabbix.
+
+  license: MIT
+
+  min_ansible_version: 2.0
+
+  platforms:
+  - name: Fedora
+    versions:
+    - 6
+    - 27
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+
+
+  galaxy_tags:
+  - tableau
+  - zabbix
+  - monitoring
+  - python

@@ -1,0 +1,41 @@
+import sys
+from xml.dom import minidom
+import requests
+
+service = sys.argv[1]
+server_name = sys.argv[2]
+url = 'http://{{tableau_server}}/admin/systeminfo.xml'
+status_xml = {{status_xml}}
+
+req = requests.get(url)
+file = open(status_xml, 'wb')
+for chunk in req.iter_content(100000):
+    file.write(chunk)
+file.close()
+
+xmldoc = minidom.parse(status_xml)
+
+serverlist = xmldoc.getElementsByTagName('machine')
+
+for server in serverlist:
+    if server.attributes['name'].value == server_name:
+        for item in server.childNodes:
+            if item.nodeName == service:
+                if item.attributes['status'].value == "Active":
+                    print(1)
+                    sys.exit()
+                elif item.attributes['status'].value == "Unlicensed":
+                    print(2)
+                    sys.exit()
+                elif item.attributes['status'].value == "Busy":
+                    print(3)
+                    sys.exit()
+                elif item.attributes['status'].value == "Passive":
+                    print(4)
+                    sys.exit()
+                elif item.attributes['status'].value == "Down":
+                    print(0)
+                    sys.exit()
+                else:
+                    print(5)
+                    sys.exit()
